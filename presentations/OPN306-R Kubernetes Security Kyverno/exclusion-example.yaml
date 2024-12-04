@@ -1,0 +1,12 @@
+rules:
+  - name: validate-resources
+    match:
+      any:
+      - resources:
+          kinds:
+            - Pod
+    exclude:
+      any:
+      - resources:
+          annotations:
+            policy.test/require-requests-limits: skip
