@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>🦄 Unicorn Rentals 🦄</title>
+    <script>
+        // Add an event listener to the confirm password field
+        
+        // Define the validatePassword function
+        function validatePassword() {
+          // Get the values of the password and confirm password fields
+          const password = document.getElementById("password").value;
+          const confirmPassword = document.getElementById("confirm_password").value;
+        
+          var password_error_div = document.getElementById("password_error");
+          // Check if the passwords match
+          if (password !== confirmPassword) {
+            // The passwords do not match, so show an error message
+            
+            //password_error_div.classList.add("alert");
+            //password_error_div.classList.add("alert-danger");
+            password_error_div.setAttribute("class", "alert alert-danger");
+            password_error_div.setAttribute("role", "alert");
+            document.getElementById("password_error").innerHTML = "The passwords do not match.";
+          } else {
+            // The passwords match, so hide the error message
+            document.getElementById("password_error").innerHTML = "";
+            password_error_div.setAttribute("class", "");
+            password_error_div.setAttribute("role", "");
+          }
+        }
+        </script>        
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <h1 class="title">🦄 Unicorn Rentals 🦄</h1>
+        </div>
+
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <div class="row">
+                    <div class="col"><h2>Create account</h2></div>
+                </div>
+                <form action="create-account-submit.html" method="post">
+                    <div class="mb-3">
+                        <input type="text" name="username" placeholder="Username" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="email" placeholder="E-mail" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control" required/>
+                    </div>
+                    <div id="password_error">
+                        
+                    </div>
+                    <script>
+                        document.getElementById("confirm_password").addEventListener("blur", validatePassword);
+                    </script>            
+                    <div class="mb-3">
+                        <input type="text" name="address1" placeholder="Address Line 1" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="address2" placeholder="Address Line 2" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="city" placeholder="City" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="state" placeholder="State" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="zip" placeholder="Zip Code" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="phone" placeholder="Phone Number" class="form-control" required/>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div> 
+</body>
+</html>
